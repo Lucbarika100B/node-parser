@@ -1,0 +1,67 @@
+﻿//Code not used : 
+
+
+  //extractor.extract(fileNameWithDir).then(function (doc) {  // });
+
+//const extractWord  = require("word-extractor"); 
+//const extractor = new WordExtractor();
+//const extracted = await readdir("C:/Users/stat2071/lib/Algorithms-data/node-parser/Diffusee");
+
+     //const firstLineOfDescriptionToObj = new Object(firstLineOfDescription);
+      //const reverseFirstLineDesc = firstLineOfDescriptionToObj.toString();
+   // console.log(typeof sepVarCode, typeof firstLineOfDescription);
+
+  // if(codeLine === "" || codeLine === " ")
+  //   console.log(fileName);
+
+  //if(codeLine === "")
+  // console.log(fileName);
+  //console.log(typeof codeLine);
+
+  //  const emptyFirstLineFile = codeLine.indexOf(""); 
+  //if( codeLine === "")
+  //console.log(fileName);
+
+  //if(lines[0] === "")
+  //console.log(varName);
+  //  console.log(emptyFirstLineFile);
+  //console.log(fileName); 
+
+
+      //const  descriptionComplete = lines.slice(descriptionLine, descriptionEndLine);
+
+
+   //linr 34&35 = const [lineNumber, line] = element; 
+    //let descriptionEndLine = lines.indexOf("Utilit/"); 
+
+
+   // const varName = sepVarCode[0];
+   // const varNameCode = sepVarCode[1].split(')')[0]; 
+
+
+
+ // const textToGet = [];
+ // const getText = textToGet.push(text);
+
+
+  //const codeVarLine = lines[0];
+
+
+  //console.log(fileName);
+
+
+
+
+    //while(lines[line_number])
+   // console.log(typeof data);
+    //console.log(Object.values(data));
+    //console.log(Object.keys(data));
+    //console.log(findText.length);
+    //const textSearch = "DESCRIPTION";
+   //const textIndex = findText.indexOf(textSearch);
+    //let line_number = 0;
+
+     //var firstArrayElement = fullData[0];
+   // console.log(fullVarName);
+  //console.log(fullVarDesc);
+
