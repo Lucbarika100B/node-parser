@@ -2,67 +2,55 @@
 import WordExtractor from 'word-extractor';
 import { readdir } from 'node:fs/promises'
 
-//const extractWord  = require("word-extractor"); 
-//const extractor = new WordExtractor();
-const extracted = await readdir("C:/Users/stat2071/lib/Algorithms-data/node-paser/docTest");
-
-const dir = "C:/Users/stat2071/lib/Algorithms-data/node-paser/docTest";
-const files = await readdir(dir); 
-const extractor = new WordExtractor(); 
-
+const dir = "C:/Users/stat2071/lib/Algorithms-data/node-parser/Diffusee";
+const files = await readdir(dir);
+const extractor = new WordExtractor();
+const allDocFilesData = [];
 for (const fileName of files) {
 
-  console.log(fileName);
-  const fileNameWithDir = dir + '/' + fileName;
 
-extractor.extract(fileNameWithDir).then(function (doc) { 
+  const fileNameWithDir = dir + '/' + fileName;
+  const doc = await extractor.extract(fileNameWithDir);
 
   const text = doc.getBody();
 
-  const textToGet = [];
-
-  const getText = textToGet.push(text);
-
   const lines = text.split("\n");
-
-  const codeVarLine = lines[0];
 
   const textEntries = lines.entries();
 
+  const codeLine = lines[0];
 
-  const codeLine = lines[0]; 
+  if (codeLine === "") continue
 
-    const sepVarCode = codeLine.split('(');
 
-    const varName = sepVarCode[0];
-
-    const varNameCode = sepVarCode[1].split(')')[0]; 
+  const sepVarCode = codeLine.split('(');
+  const varNameCode = sepVarCode[1].split(')')[0];
 
   let descriptionLine = -1;
-  
+
   for (const element of textEntries) {
     const lineNumber = element[0];
-    const line = element[1]; 
-    //linr 34&35 = const [lineNumber, line] = element; 
-
-    let descriptionEndLine = lines.slice(descriptionLine, lines["\n"]); 
+    const line = element[1];
 
     if (line === "Description" || line === "Description sommaire") {
 
       descriptionLine = lineNumber + 2;
-      const  descriptionComplete = lines.slice(descriptionLine, descriptionEndLine);
 
-      const fullDescription = lines[descriptionLine];
+      const firstLineOfDescription = lines[descriptionLine];
 
-      console.log({varNameCode, varName, descriptionComplete}); 
+      const sepVarCodeToString = sepVarCode.toString();
 
-      }
-  
+      const docFileDataToJson = ({ variable: sepVarCode[0], code: varNameCode, description: firstLineOfDescription });
+
+      allDocFilesData.push(docFileDataToJson);
+
     }
- 
-  });
+
+  }
 
 }
+
+console.log(JSON.stringify(allDocFilesData));
 
 
 
