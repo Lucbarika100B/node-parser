@@ -27,9 +27,9 @@ pdf(dataBuffer).then(function (data) {
 
     const lineVarDescTitle = lines[69];
 
-    const lastLineDesc = lines[71];
+    const lastLineDesc = lines[71]+lines[72];
 
-    const lineVarDesc = lines[70] + ' ' + lastLineDesc.trimEnd();
+    const lineVarDesc = lines[70] + ' ' + lastLineDesc;
 
     const fullVarDesc = lineVarDescTitle.concat(':', lineVarDesc);
 
@@ -38,7 +38,8 @@ pdf(dataBuffer).then(function (data) {
     //console.log(fullData);
 
     console.log({code: codeOnly});
-    console.log(lineVarDesc);
+    console.log(fullData);
+    //console.log(lines[72])
 
 
 })

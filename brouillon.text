@@ -1,67 +1,182 @@
-﻿//Code not used : 
+﻿//code not used : 
+
+        //let getSplitDesc = [];
+        //getSplitDesc.push(file.Variable.trim(), file.Code, file.Description.split("."));
+       // console.log(getSplitDesc);
+        //let storeDesc = [];
+        //TYPE OF FILE ? = Object 
+        //return getSplitDesc;
+        // console.log(typeof file);
+        //console.log({storeDesc});
+
+        
+ //storeDesc.forEach(element => console.log(element)); 
+        //for (const element of storeDesc) {
+            //element.split(".");
+            //element.trim();
+            //const fixSpace =  allDocFilesData.forEach(file => (file.Variable, file.Description).trim());
+       // }
+
+   //file.Description = file.Description.trim();
+        // file.Variable = file.Variable.split('.');
+        //file.code = file.Code.trim(); 
+
+    for (const element of docFileData) {
+        element.Description = element.Description.split(".");
+ // const fixSpace =  allDocFilesData.forEach(file => (file.Variable, file.Description).trim());
+// console.log(fixSpace); 
+
+//console.log(typeof findCodeForEntry(jsonTocompare, varNamedesc));
+// const varCode = jsonTocompare[0].code; 
+// const fullDataMatch = { varNamedesc, "Code": varCode };
+//const testObj = Object.entries(varNamedesc);  
+
+// console.log(varCode);
+
+// const varNamedesc = [
+//    [ "Variable", "Année scolaire"],
+//    [ "Description de la variable", "L’année scolaire désigne la période au cours de laquelle ont lieu les activités d’apprentissage.Elle est représentée par une année de début et une année de fin"
+//    ], 
+
+// ["Variable" , "L’année scolaire préscolaire, primaire et secondaire débute le 1er juillet et se termine le 30 juin."], 
+//   ["Description de la variable", ""], 
+// ["Variable", "Catégorie de difficulté EHDAA;La catégorie de difficulté d’un élève handicapé ou en difficulté d’adaptation ou d’apprentissage précise le type de déficience ou de troubles affectant l’élève."],
+// ];
+
+//console.log(doesVariableMatch(jsonTocompare[1], varNamedesc));
+
+//const getVarCode = varCode.toString().split(",");
+//const onlyVarCode = getVarCode[1]
+//Object.values(jsonTocompare[0]);
+
+//console.log(testjsonobj);
+//if this comparaison is true than what ^
+//do something to merge code in new matching 
+//after how do we get the merge data ? is it an array? 
+//array.prototype.push.apply(jsontocompare, testobj); 
+//console.log(varnamedesc.variable); 
+// for(const i in jsontocompare){}
+//  
+  //const output = testobj.filter(i => i.variable === i.description); 
+
+       // console.log(output);
+
+// array.prototype.diff = function(jsontocompare) {
+
+//     let dataarr = []; 
+//     for(var i in this) {
+//         if(jsontocompare.indexof(this[i]) > -1){
+
+//             dataarr.push(this[i]);
+//         }
+//     }
+
+//     return dataarr;
+// };
 
 
-  //extractor.extract(fileNameWithDir).then(function (doc) {  // });
+//const output = varnamedesc.filter(element => jsontocompare.includes(element)) ;
+//console.log(output);
 
-//const extractWord  = require("word-extractor"); 
-//const extractor = new WordExtractor();
-//const extracted = await readdir("C:/Users/stat2071/lib/Algorithms-data/node-parser/Diffusee");
 
-     //const firstLineOfDescriptionToObj = new Object(firstLineOfDescription);
-      //const reverseFirstLineDesc = firstLineOfDescriptionToObj.toString();
-   // console.log(typeof sepVarCode, typeof firstLineOfDescription);
+//const testobj = object.entries(varnamedesc);
+//const jsonmatch = object.entries(jsontocompare);
 
-  // if(codeLine === "" || codeLine === " ")
-  //   console.log(fileName);
+// function datamatch(testobj, jsonmatch) {
 
-  //if(codeLine === "")
-  // console.log(fileName);
-  //console.log(typeof codeLine);
+//     const output = [];
 
-  //  const emptyFirstLineFile = codeLine.indexOf(""); 
-  //if( codeLine === "")
-  //console.log(fileName);
+//     for (var i = 0; i < testobj.length; i++) {
+
+//         for (var c = 0; i < jsonmatch.length; c++) {
+
+//             if (testobj[i] === jsonmatch[c]) {
+//                 output.push(testobj[i]);
+//             }
+
+//         }
+// console.log(output);
+//     }
+//     return output;
+    
+
+// }
+
+//varnamedesc.variable === jsontocompare.variable
+
+//for(vartest of testobj) {
+
+  //  if(testobj === jsonmatch)
+    //console.log();
+   
+    //}
+
+//const testoutput = jsontocompare.filter(function (obj) {
+
+  //  return descsplit.indexof(obj) === 0;
+//}); 
+
+  //extractor.extract(filenamewithdir).then(function (doc) {  // });
+
+//const extractword  = require("word-extractor"); 
+//const extractor = new wordextractor();
+//const extracted = await readdir("c:/users/stat2071/lib/algorithms-data/node-parser/diffusee");
+
+     //const firstlineofdescriptiontoobj = new object(firstlineofdescription);
+      //const reversefirstlinedesc = firstlineofdescriptiontoobj.tostring();
+   // console.log(typeof sepvarcode, typeof firstlineofdescription);
+
+  // if(codeline === "" || codeline === " ")
+  //   console.log(filename);
+
+  //if(codeline === "")
+  // console.log(filename);
+  //console.log(typeof codeline);
+
+  //  const emptyfirstlinefile = codeline.indexof(""); 
+  //if( codeline === "")
+  //console.log(filename);
 
   //if(lines[0] === "")
-  //console.log(varName);
-  //  console.log(emptyFirstLineFile);
-  //console.log(fileName); 
+  //console.log(varname);
+  //  console.log(emptyfirstlinefile);
+  //console.log(filename); 
 
 
-      //const  descriptionComplete = lines.slice(descriptionLine, descriptionEndLine);
+      //const  descriptioncomplete = lines.slice(descriptionline, descriptionendline);
 
 
-   //linr 34&35 = const [lineNumber, line] = element; 
-    //let descriptionEndLine = lines.indexOf("Utilit/"); 
+   //linr 34&35 = const [linenumber, line] = element; 
+    //let descriptionendline = lines.indexof("utilit/"); 
 
 
-   // const varName = sepVarCode[0];
-   // const varNameCode = sepVarCode[1].split(')')[0]; 
+   // const varname = sepvarcode[0];
+   // const varnamecode = sepvarcode[1].split(')')[0]; 
 
 
 
- // const textToGet = [];
- // const getText = textToGet.push(text);
+ // const texttoget = [];
+ // const gettext = texttoget.push(text);
 
 
-  //const codeVarLine = lines[0];
+  //const codevarline = lines[0];
 
 
-  //console.log(fileName);
+  //console.log(filename);
 
 
 
 
     //while(lines[line_number])
    // console.log(typeof data);
-    //console.log(Object.values(data));
-    //console.log(Object.keys(data));
-    //console.log(findText.length);
-    //const textSearch = "DESCRIPTION";
-   //const textIndex = findText.indexOf(textSearch);
+    //console.log(object.values(data));
+    //console.log(object.keys(data));
+    //console.log(findtext.length);
+    //const textsearch = "description";
+   //const textindex = findtext.indexof(textsearch);
     //let line_number = 0;
 
-     //var firstArrayElement = fullData[0];
-   // console.log(fullVarName);
-  //console.log(fullVarDesc);
+     //var firstarrayelement = fulldata[0];
+   // console.log(fullvarname);
+  //console.log(fullvardesc);
 

@@ -1,4 +1,4 @@
-﻿import { extractText } from 'office-text-extractor';
+﻿//import { extractText } from 'office-text-extractor';
 import WordExtractor from 'word-extractor';
 import { readdir } from 'node:fs/promises'
 
@@ -6,6 +6,9 @@ const dir = "C:/Users/stat2071/lib/Algorithms-data/node-parser/Diffusee";
 const files = await readdir(dir);
 const extractor = new WordExtractor();
 const allDocFilesData = [];
+
+
+
 for (const fileName of files) {
 
 
@@ -40,7 +43,7 @@ for (const fileName of files) {
 
       const sepVarCodeToString = sepVarCode.toString();
 
-      const docFileDataToJson = ({ variable: sepVarCode[0], code: varNameCode, description: firstLineOfDescription });
+      const docFileDataToJson = ({ Variable: sepVarCode[0], Code: varNameCode, Description: firstLineOfDescription });
 
       allDocFilesData.push(docFileDataToJson);
 
