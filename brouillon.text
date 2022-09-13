@@ -1,5 +1,248 @@
 ﻿//code not used : 
+//*******************************************
+//full algorithm from scratch without refactoring
+/*  
+//const allCsvRows = await getCsvData(CSV_FILE_NAME);
 
+//const csvRow = {varName: " XXX", Description: "ABC"}
+//const allDocFilesData = [
+//{code: "XXW", varName: "HHHAAA", desc: "XIWY"}, 
+//{code: "XXX", varName: "XXY", desc: "ABC"}]
+//matchRowToDocFil(csvRow, allDocFilesData);
+
+//import { extractText } from 'office-text-extractor';
+import WordExtractor from 'word-extractor';
+import { readdir } from 'node:fs/promises'
+
+const dir = "C:/Users/stat2071/lib/Algorithms-data/node-parser/Diffusee";
+const files = await readdir(dir);
+const extractor = new WordExtractor();
+const allDocFilesData = [];
+
+for (const fileName of files) {
+
+
+  const fileNameWithDir = dir + '/' + fileName;
+  const doc = await extractor.extract(fileNameWithDir);
+
+  const text = doc.getBody();
+
+  const lines = text.split("\n");
+
+  const textEntries = lines.entries();
+
+  const codeLine = lines[0];
+
+  if (codeLine === "") continue
+
+
+  const sepVarCode = codeLine.split('(');
+  const varNameCode = sepVarCode[1].split(')')[0];
+
+  let descriptionLine = -1;
+
+  for (const element of textEntries) {
+    const lineNumber = element[0];
+    const line = element[1];
+
+    if (line === "Description" || line === "Description sommaire") {
+
+      descriptionLine = lineNumber + 2;
+
+      const firstLineOfDescription = lines[descriptionLine];
+
+      const sepVarCodeToString = sepVarCode.toString();
+
+      const docFileDataToJson = ({Variable: sepVarCode[0], Code: varNameCode, Description: firstLineOfDescription });
+
+      allDocFilesData.push(docFileDataToJson);
+
+    }
+
+
+  }
+
+}
+const jsonTocompare = (JSON.stringify(allDocFilesData));
+
+
+
+
+
+
+const varNamedesc = {
+    "Variable": "Année scolaire",
+    "Description de la variable": "L’année scolaire désigne la période au cours de laquelle ont lieu les activités d’apprentissage.Elle est représentée par une année de début et une année de fin"
+};
+
+//const jsonTocompare = allDocFilesData;
+//docFileData object of one particular docFile it has Variable, code, Description keys
+// varNamedesc is the object from the csv with Variable & Description de la variable
+// the purpose of this function is to determine if the csv matches the docFile
+function doesVariableMatch(docFileData, varNamedesc) {
+    if (docFileData.Variable === varNamedesc.Variable) {
+        if (docFileData.Description === varNamedesc["Description de la variable"]) {
+            return true
+        } else return false
+
+    } else return false
+
+}
+
+//this function finds the right code based on matching between Varibale & Description
+//allFilesData is the array of objects with all doc files 
+// varNamedesc is the object from the csv with Variable & Description de la variable
+
+function findCodeForEntry(allFilesData, varNamedesc){
+
+    for(const doc of allFilesData){
+        if(doesVariableMatch(doc, varNamedesc)){
+           return doc.code
+        }
+    }
+
+    
+}
+//console.log(typeof findCodeForEntry(jsonTocompare, varNamedesc));
+
+
+//this function print the code in the docFile associated with the proper Variable & Description based on matching 
+//varNamedesc is the object with Variable & Description de la variable with correct matching
+//We want to print the proper Variable&Description matching the code
+function matchCodeToVar(){ 
+
+    let dataOutput = {...varNamedesc, code:findCodeForEntry(jsonTocompare, varNamedesc)};
+    return dataOutput;
+} 
+
+console.log(matchCodeToVar());*/
+/*
+function matchCsvToDocFile(CSV_FILE_NAME, DOC_FILE_DIR) {
+
+  return CSV_FILE_NAME.reduce(object1 => {
+    return !DOC_FILE_DIR.some(object2 => {
+      return object1.id === object2.id;
+    })
+  });
+}
+
+const getMatching = [
+  ...matchCsvToDocFile(CSV_FILE_NAME, DOC_FILE_DIR),
+  ...matchCsvToDocFile(DOC_FILE_DIR, CSV_FILE_NAME)
+];
+console.log(getMatching);
+*/
+
+
+//matchCsvToDocFile(CSV_FILE_NAME, DOC_FILE_DIR);
+
+//async function getDocFileData(docFileName, dirPath){
+  //const docFileData = await extractDataFromFile(docFileName, dirPath);
+  
+//}
+
+//getsdocFileData(docFilename, DOC_FILE_DIR);
+
+//function match
+
+/*
+async function outPutDocFiles2(files, dir) {
+     const allDocFilesData = [];
+      for (const fileName of files) {
+         try {
+            const fileData = await extractDataFromFile(fileName, dir);
+            allDocFilesData.push(fileData);
+         } catch (e) {
+            console.log(e);
+         }
+        
+      }
+      return (allDocFilesData);
+} 
+*/
+
+/* THis is a JS code practice */
+
+/*
+export function getCsvData(csvFileName) {
+   let dataArr = [];
+   fs.createReadStream(csvFileName)
+      .pipe(csv({ separator: ';' }))
+      .on('data', (rows) => dataArr.push(rows))
+      .on('end', () => {
+         console.log(dataArr);
+      });
+
+}
+*/
+//console.log(getCsvData(CSV_FILE_NAME));
+//sleep returns a promise that resolves after 'seconds'
+/*
+function sleep(seconds) {
+   return new Promise((resolve) => {
+    setTimeout(function () {
+         console.log("Inside setTime out call back");
+         resolve();
+      }, seconds * 1000);
+
+   })
+
+}
+console.log("function sleep will take 5 seconds");
+await sleep(5);
+console.log("5 seconds passed now");*/
+
+/*const myNumber = '69';
+
+const contacts=[{phoneNumber:"420",name:"Mike Smith",favorite:!1,color:"orange"},{phoneNumber:"360",name:"John Smith",favorite:!0,color:"green"}];
+
+const messages=[{to:"69",from:"360",isRead:!1,time:new Date,owner:0,message:"Hello there friend this is walker"},{to:"69",from:"360",isRead:!0,time:new Date,owner:1,message:"Hello there friend this is walker"},{to:"69",from:"720",isRead:!1,time:new Date,owner:0,message:"Hello there friend from random person"},{to:"69",from:"720",isRead:!0,time:new Date,owner:1,message:"Hello there friend from random person"}];
+
+let defaultDisplayName = 'Spectric'
+
+const result = messages.map(e => {
+  let found = contacts.find(f => [e.to, e.from].includes(f.phoneNumber))
+  e.displayName = found ? found.name : defaultDisplayName;
+  return e;
+})
+console.log(result)*/
+
+
+
+
+// Error Handling & Exception functions 
+// this function is in charge of returning  files names that have empty codeLine or empty description 
+// the function takes a docFile and the directory in which file is stored
+//function getFileNameException(docFileName, dirData){
+ //   const fileLines =  getFileLines(docFileName, dirData); 
+   // const descriptionLine = getDescription(fileLines);
+    //if (descriptionLine.startsWith("")|| fileLines[0].startsWith("")){
+       
+      //  return docFileName ;
+    //}
+   
+//}
+
+//import WordExtractor from 'word-extractor';
+//const extractor = new WordExtractor();
+//import { readdir } from 'node:fs/promises'
+//import { extractText } from 'office-text-extractor';
+//const doc = await extractor.extract(fileNameWithDir);
+// async function extractDocFiles(dir, files) {
+    
+//     for (const fileName of files) {
+//         const text = doc.getBody().split("\n");
+//         const doc = await extractor.extract(fileNameWithDir);
+//         const textEntries = text.entries();
+//         const codeLine = text[0];
+
+//         if (codeLine === "") continue
+//     }
+
+
+// }
+
+// console.log(extractDocFiles(dir, files));
         //let getSplitDesc = [];
         //getSplitDesc.push(file.Variable.trim(), file.Code, file.Description.split("."));
        // console.log(getSplitDesc);
