@@ -1,22 +1,42 @@
 {
 
   "name": "node-parser",
+
   "version": "2.0.0",
+
   "description": "",
+
   "main": "main.js",
+
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
+
   "author": "ISQ",
+
   "license": "UNLICENSED",
 
   "dependencies": {
-    "package.json": "^2.0.1",
-    "pkg.json": "^2.0.8", 
+
     "csv-parser": "^3.0.0",
+
+    "csv-writer": "^1.6.0",
+
     "office-text-extractor": "^2.0.0",
+
+    "package.json": "^2.0.1",
+
     "pdf-extraction": "^1.0.2",
+
+    "pkg.json": "^2.0.8",
+
     "word-extractor": "^1.0.4"
+
   },
-  "type":"module"
+
+  "type": "module"
+
 }
+
