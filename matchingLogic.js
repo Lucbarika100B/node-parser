@@ -52,9 +52,8 @@ async function macthAllCsvRows(csvFileName, docFileDir) {
 
 
 function writeMatches(records) {
-
   const csvWriter = createObjectCsvWriter({
-    path: './out.csv',
+    path: './outPut.csv',
     header: [
       { id: 'Variable', title: 'VARIABLE' },
       { id: 'Description de la variable', title: 'DESCRIPTION DE LA VARIABLE' },
